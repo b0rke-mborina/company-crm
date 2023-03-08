@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link, useParams, useLocation } from "react-router-dom";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
@@ -57,7 +57,7 @@ const style = {
 
 const ClientCommunicationItem = (props) => {
 	const { id } = useParams();
-
+	const location = useLocation();
 	return (
 		<Paper elevation={3} sx={style.communicationItem}>
 			<Box sx={style.nameDate}>
@@ -77,7 +77,7 @@ const ClientCommunicationItem = (props) => {
 						Napomena: {props.communication.Napomena}
 					</Typography>
 				</Box>
-				<Box>
+				{location.pathname.split("/").slice(-1)[0] === "komunikacija" && <Box>
 					<Link to={`/klijent/${id}/komunikacija/${props.communication.ID}/uredi`}>
 						<ButtonIconEdit />
 					</Link>
@@ -85,7 +85,7 @@ const ClientCommunicationItem = (props) => {
 						navigateTo={`/klijent/${id}/komunikacija`}
 						id={props.communication.ID}
 					/>
-				</Box>
+				</Box>}
 			</Box>
 		</Paper>
 	)

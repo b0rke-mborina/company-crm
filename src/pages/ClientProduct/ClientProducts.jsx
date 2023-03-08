@@ -4,6 +4,7 @@ import { useParams, Link } from "react-router-dom";
 import { AxiosService, filterItems } from "../../services";
 import Box from "@mui/material/Box";
 import ClientProductItem from "../../components/Items/ClientProductItem";
+import ButtonBack from "../../components/Button/ButtonBack";
 import MainHeading from "../../components/MainHeading";
 import SearchBar from "../../components/SearchBar";
 import ButtonIconAddNew from "../../components/ButtonIcon/ButtonIconAddNew";
@@ -38,6 +39,10 @@ const style = {
 		bgcolor: "#E0EBFF",
 		borderRadius: 1,
 		p: "24px"
+	},
+	buttonsBox: {
+		pt: "24px",
+		textAlign: "center"
 	}
 };
 
@@ -108,6 +113,9 @@ const ClientProducts = () => {
 				{clientProducts.map((item, index) => (
 					<ClientProductItem clientProduct={item} key={index} />
 				))}
+			</Box>
+			<Box sx={style.buttonsBox}>
+				<ButtonBack />
 			</Box>
 			<SnackbarFeedbackMessage visible={visible} setVisible={setVisible} message={errorMessage} bgColor={snackbarColor} />
 		</Box>

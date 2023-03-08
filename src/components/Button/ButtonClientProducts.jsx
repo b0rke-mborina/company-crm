@@ -17,13 +17,13 @@ const style = {
 	}
 };
 
-const ButtonCommunication = () => {
+const ButtonClientProducts = () => {
 	return (
-		<Button variant="contained" aria-label="communication button" sx={style.button}>
+		<Button variant="contained" aria-label="client's products button" sx={style.button}>
 			<InventoryOutlinedIcon sx={style.icon} />
 			Products
 		</Button>
 	)
 };
 
-export default ButtonCommunication;
+export default ButtonClientProducts;
